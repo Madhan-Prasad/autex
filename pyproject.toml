@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "autex"
+version = "0.1.0"
+description = "Automated Near-Infrared Reduction and Extraction Pipeline"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [
+    { name = "Maddy" }
+]
+dependencies = [
+    "numpy>=1.22.0",
+    "scipy>=1.8.0",
+    "astropy>=5.0.0",
+    "matplotlib>=3.5.0",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+autex = "autex.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "sphinx>=7.0",
+    "sphinx-rtd-theme>=1.2.0",
+    "flake8>=6.0",
+    "black>=23.0",
+]

@@ -1,0 +1,30 @@
+# =====================================================================
+# autex Pipeline Default Configuration
+# =====================================================================
+
+instrument:
+  name: "TIRSPEC"
+  telescope: "HCT"
+  detector:
+    dim_x: 1024
+    dim_y: 1024
+    num_quadrants: 4
+    quadrant_dim_x: 512
+    quadrant_dim_y: 512
+    readout_time_sec: 0.903
+    gain: 4.5          # e-/ADU
+    read_noise: 15.0    # e-
+
+sutr:
+  total_reads: 112
+  time_offset_formula: "midpoint"  # t_r = i + (512 - r) / 512
+
+calibration:
+  pca_components: 10
+  clipping_sigma: 3.0
+  bad_pixel_threshold: 5.0
+
+paths:
+  raw_dir: "data/raw"
+  output_dir: "data/reduced"
+  calib_dir: "data/calib"

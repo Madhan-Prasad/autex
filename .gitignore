@@ -1,0 +1,19 @@
+# Python / Virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.test_env/
+.pytest_cache/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Sphinx docs
+docs/build/
+
+# Local pipeline data products
+data/reduced/
+*.log
