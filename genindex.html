@@ -1,0 +1,689 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Index &mdash; autex 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            autex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#install-from-source">Install from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#command-line-usage">Command-Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#run-slope-fitting-on-raw-sutr-ramps">Run Slope Fitting on Raw SUTR Ramps:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#run-2mass-calibrated-photometry">Run 2MASS-Calibrated Photometry:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="quickstart.html#run-abba-nod-pair-spectroscopy">Run ABBA Nod-Pair Spectroscopy:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#python-api-quickstart">Python API Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_architecture.html">Pipeline Architecture &amp; Physics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/calibration.html">Calibration Engine (<cite>autex.calibration</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/calibration.html#autex.calibration.assemble_quadrants"><code class="docutils literal notranslate"><span class="pre">assemble_quadrants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/calibration.html#autex.calibration.fit_sutr_slope"><code class="docutils literal notranslate"><span class="pre">fit_sutr_slope()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/calibration.html#autex.calibration.interpolate_row_clock_delays"><code class="docutils literal notranslate"><span class="pre">interpolate_row_clock_delays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/calibration.html#autex.calibration.remove_pedestal"><code class="docutils literal notranslate"><span class="pre">remove_pedestal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/calibration.html#autex.calibration.split_quadrants"><code class="docutils literal notranslate"><span class="pre">split_quadrants()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/photometry.html">Photometry Engine (<cite>autex.photometry</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.aperture_sum"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.aperture_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.flux_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.instrumental_mag"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.instrumental_mag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.mag_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.mag_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.net_flux"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.net_flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.sky_background_per_pixel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.source_id"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.x"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.PhotometryRecord.y"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection"><code class="docutils literal notranslate"><span class="pre">SourceDetection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.flux"><code class="docutils literal notranslate"><span class="pre">SourceDetection.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.fwhm"><code class="docutils literal notranslate"><span class="pre">SourceDetection.fwhm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.peak"><code class="docutils literal notranslate"><span class="pre">SourceDetection.peak</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.source_id"><code class="docutils literal notranslate"><span class="pre">SourceDetection.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.x"><code class="docutils literal notranslate"><span class="pre">SourceDetection.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/photometry.html#autex.photometry.SourceDetection.y"><code class="docutils literal notranslate"><span class="pre">SourceDetection.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.detect_sources"><code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.estimate_background_2d"><code class="docutils literal notranslate"><span class="pre">estimate_background_2d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.extract_aperture_photometry"><code class="docutils literal notranslate"><span class="pre">extract_aperture_photometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/photometry.html#autex.photometry.measure_empirical_fwhm"><code class="docutils literal notranslate"><span class="pre">measure_empirical_fwhm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/astrometry.html">Astrometry &amp; Catalogs (<cite>autex.astrometry</cite> &amp; <cite>autex.calibration_catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.brightness_variance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.center_of_mass_distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.mean_brightness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.radial_dispersion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.roll_angle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.star_count"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.star_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.astrometry.build_wcs_header"><code class="docutils literal notranslate"><span class="pre">build_wcs_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.astrometry.compute_frame_features"><code class="docutils literal notranslate"><span class="pre">compute_frame_features()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.astrometry.match_asterism_triangles"><code class="docutils literal notranslate"><span class="pre">match_asterism_triangles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.num_matched_stars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point_err</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point"><code class="docutils literal notranslate"><span class="pre">calculate_photometric_zero_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/astrometry.html#autex.calibration_catalog.query_2mass_catalog"><code class="docutils literal notranslate"><span class="pre">query_2mass_catalog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/spectroscopy.html">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux_err"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.header_meta"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.header_meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.pixels"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.pixels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.wavelength"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.calibrate_wavelength"><code class="docutils literal notranslate"><span class="pre">calibrate_wavelength()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.correct_telluric_absorption"><code class="docutils literal notranslate"><span class="pre">correct_telluric_absorption()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.extract_optimal_spectrum"><code class="docutils literal notranslate"><span class="pre">extract_optimal_spectrum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.fit_spectral_trace"><code class="docutils literal notranslate"><span class="pre">fit_spectral_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/spectroscopy.html#autex.spectroscopy.subtract_nod_pair"><code class="docutils literal notranslate"><span class="pre">subtract_nod_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/io_catalog.html">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.io.get_standard_header"><code class="docutils literal notranslate"><span class="pre">get_standard_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.io.load_fits"><code class="docutils literal notranslate"><span class="pre">load_fits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.io.stack_ndr_sequence"><code class="docutils literal notranslate"><span class="pre">stack_ndr_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.io.validate_sutr_cube"><code class="docutils literal notranslate"><span class="pre">validate_sutr_cube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata"><code class="docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.date_obs"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.date_obs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.dec"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.exptime"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.exptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.filename"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.filepath"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filepath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.filter_band"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.frame_type"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.frame_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.nreads"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.nreads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.ra"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.ra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.FrameMetadata.target"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.catalog.ObservationCatalog"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.ObservationCatalog.frames"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.frames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.ObservationCatalog.get_by_type"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.get_by_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.ObservationCatalog.pair_science_and_calibrations"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.pair_science_and_calibrations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/io_catalog.html#autex.catalog.ObservationCatalog.scan_directory"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.scan_directory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/io_catalog.html#autex.catalog.infer_frame_type"><code class="docutils literal notranslate"><span class="pre">infer_frame_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/pipeline_cli.html">Pipeline &amp; CLI Orchestrator (<cite>autex.pipeline</cite> &amp; <cite>autex.cli</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.build_master_dark_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.reduce_science_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_photometry_on_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_spectroscopy_on_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/pipeline_cli.html#autex.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">autex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Index</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#L"><strong>L</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ | <a href="#X"><strong>X</strong></a>
+ | <a href="#Y"><strong>Y</strong></a>
+ | <a href="#Z"><strong>Z</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.aperture_sum">aperture_sum (autex.photometry.PhotometryRecord attribute)</a>
+</li>
+      <li><a href="api/calibration.html#autex.calibration.assemble_quadrants">assemble_quadrants() (in module autex.calibration)</a>
+</li>
+      <li>
+    autex.astrometry
+
+      <ul>
+        <li><a href="api/astrometry.html#module-autex.astrometry">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.calibration
+
+      <ul>
+        <li><a href="api/calibration.html#module-autex.calibration">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.calibration_catalog
+
+      <ul>
+        <li><a href="api/astrometry.html#module-autex.calibration_catalog">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.catalog
+
+      <ul>
+        <li><a href="api/io_catalog.html#module-autex.catalog">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    autex.cli
+
+      <ul>
+        <li><a href="api/pipeline_cli.html#module-autex.cli">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.io
+
+      <ul>
+        <li><a href="api/io_catalog.html#module-autex.io">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.photometry
+
+      <ul>
+        <li><a href="api/photometry.html#module-autex.photometry">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.pipeline
+
+      <ul>
+        <li><a href="api/pipeline_cli.html#module-autex.pipeline">module</a>
+</li>
+      </ul></li>
+      <li>
+    autex.spectroscopy
+
+      <ul>
+        <li><a href="api/spectroscopy.html#module-autex.spectroscopy">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance">brightness_variance (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model">build_master_dark_model() (autex.pipeline.ReductionPipeline method)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.build_wcs_header">build_wcs_header() (in module autex.astrometry)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point">calculate_photometric_zero_point() (in module autex.calibration_catalog)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.calibrate_wavelength">calibrate_wavelength() (in module autex.spectroscopy)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance">center_of_mass_distance (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.compute_frame_features">compute_frame_features() (in module autex.astrometry)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.correct_telluric_absorption">correct_telluric_absorption() (in module autex.spectroscopy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.date_obs">date_obs (autex.catalog.FrameMetadata attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.dec">dec (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.detect_sources">detect_sources() (in module autex.photometry)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.estimate_background_2d">estimate_background_2d() (in module autex.photometry)</a>
+</li>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.exptime">exptime (autex.catalog.FrameMetadata attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.extract_aperture_photometry">extract_aperture_photometry() (in module autex.photometry)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.extract_optimal_spectrum">extract_optimal_spectrum() (in module autex.spectroscopy)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D">ExtractedSpectrum1D (class in autex.spectroscopy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.filename">filename (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.filepath">filepath (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band">filter_band (autex.calibration_catalog.ZeroPointSolution attribute)</a>
+
+      <ul>
+        <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.filter_band">(autex.catalog.FrameMetadata attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.fit_spectral_trace">fit_spectral_trace() (in module autex.spectroscopy)</a>
+</li>
+      <li><a href="api/calibration.html#autex.calibration.fit_sutr_slope">fit_sutr_slope() (in module autex.calibration)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.SourceDetection.flux">flux (autex.photometry.SourceDetection attribute)</a>
+
+      <ul>
+        <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux">(autex.spectroscopy.ExtractedSpectrum1D attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.flux_err">flux_err (autex.photometry.PhotometryRecord attribute)</a>
+
+      <ul>
+        <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux_err">(autex.spectroscopy.ExtractedSpectrum1D attribute)</a>
+</li>
+      </ul></li>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.frame_type">frame_type (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata">FrameMetadata (class in autex.catalog)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures">FrameObjectFeatures (class in autex.astrometry)</a>
+</li>
+      <li><a href="api/io_catalog.html#autex.catalog.ObservationCatalog.frames">frames (autex.catalog.ObservationCatalog attribute)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.SourceDetection.fwhm">fwhm (autex.photometry.SourceDetection attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.ObservationCatalog.get_by_type">get_by_type() (autex.catalog.ObservationCatalog method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.io.get_standard_header">get_standard_header() (in module autex.io)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.header_meta">header_meta (autex.spectroscopy.ExtractedSpectrum1D attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.infer_frame_type">infer_frame_type() (in module autex.catalog)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.instrumental_mag">instrumental_mag (autex.photometry.PhotometryRecord attribute)</a>
+</li>
+      <li><a href="api/calibration.html#autex.calibration.interpolate_row_clock_delays">interpolate_row_clock_delays() (in module autex.calibration)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="L">L</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.io.load_fits">load_fits() (in module autex.io)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.mag_err">mag_err (autex.photometry.PhotometryRecord attribute)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.cli.main">main() (in module autex.cli)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.match_asterism_triangles">match_asterism_triangles() (in module autex.astrometry)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness">mean_brightness (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.measure_empirical_fwhm">measure_empirical_fwhm() (in module autex.photometry)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="api/astrometry.html#module-autex.astrometry">autex.astrometry</a>
+</li>
+        <li><a href="api/calibration.html#module-autex.calibration">autex.calibration</a>
+</li>
+        <li><a href="api/astrometry.html#module-autex.calibration_catalog">autex.calibration_catalog</a>
+</li>
+        <li><a href="api/io_catalog.html#module-autex.catalog">autex.catalog</a>
+</li>
+        <li><a href="api/pipeline_cli.html#module-autex.cli">autex.cli</a>
+</li>
+        <li><a href="api/io_catalog.html#module-autex.io">autex.io</a>
+</li>
+        <li><a href="api/photometry.html#module-autex.photometry">autex.photometry</a>
+</li>
+        <li><a href="api/pipeline_cli.html#module-autex.pipeline">autex.pipeline</a>
+</li>
+        <li><a href="api/spectroscopy.html#module-autex.spectroscopy">autex.spectroscopy</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.net_flux">net_flux (autex.photometry.PhotometryRecord attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.nreads">nreads (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars">num_matched_stars (autex.calibration_catalog.ZeroPointSolution attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.ObservationCatalog">ObservationCatalog (class in autex.catalog)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.ObservationCatalog.pair_science_and_calibrations">pair_science_and_calibrations() (autex.catalog.ObservationCatalog method)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.SourceDetection.peak">peak (autex.photometry.SourceDetection attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord">PhotometryRecord (class in autex.photometry)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.pixels">pixels (autex.spectroscopy.ExtractedSpectrum1D attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.query_2mass_catalog">query_2mass_catalog() (in module autex.calibration_catalog)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.ra">ra (autex.catalog.FrameMetadata attribute)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion">radial_dispersion (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group">reduce_science_group() (autex.pipeline.ReductionPipeline method)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline">ReductionPipeline (class in autex.pipeline)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/calibration.html#autex.calibration.remove_pedestal">remove_pedestal() (in module autex.calibration)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle">roll_angle (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run">run() (autex.pipeline.ReductionPipeline method)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image">run_photometry_on_image() (autex.pipeline.ReductionPipeline method)</a>
+</li>
+      <li><a href="api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair">run_spectroscopy_on_pair() (autex.pipeline.ReductionPipeline method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.ObservationCatalog.scan_directory">scan_directory() (autex.catalog.ObservationCatalog method)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel">sky_background_per_pixel (autex.photometry.PhotometryRecord attribute)</a>
+</li>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.source_id">source_id (autex.photometry.PhotometryRecord attribute)</a>
+
+      <ul>
+        <li><a href="api/photometry.html#autex.photometry.SourceDetection.source_id">(autex.photometry.SourceDetection attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.SourceDetection">SourceDetection (class in autex.photometry)</a>
+</li>
+      <li><a href="api/calibration.html#autex.calibration.split_quadrants">split_quadrants() (in module autex.calibration)</a>
+</li>
+      <li><a href="api/io_catalog.html#autex.io.stack_ndr_sequence">stack_ndr_sequence() (in module autex.io)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.astrometry.FrameObjectFeatures.star_count">star_count (autex.astrometry.FrameObjectFeatures attribute)</a>
+</li>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.subtract_nod_pair">subtract_nod_pair() (in module autex.spectroscopy)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.catalog.FrameMetadata.target">target (autex.catalog.FrameMetadata attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/io_catalog.html#autex.io.validate_sutr_cube">validate_sutr_cube() (in module autex.io)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.wavelength">wavelength (autex.spectroscopy.ExtractedSpectrum1D attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="X">X</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.x">x (autex.photometry.PhotometryRecord attribute)</a>
+
+      <ul>
+        <li><a href="api/photometry.html#autex.photometry.SourceDetection.x">(autex.photometry.SourceDetection attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Y">Y</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/photometry.html#autex.photometry.PhotometryRecord.y">y (autex.photometry.PhotometryRecord attribute)</a>
+
+      <ul>
+        <li><a href="api/photometry.html#autex.photometry.SourceDetection.y">(autex.photometry.SourceDetection attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="Z">Z</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point">zero_point (autex.calibration_catalog.ZeroPointSolution attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err">zero_point_err (autex.calibration_catalog.ZeroPointSolution attribute)</a>
+</li>
+      <li><a href="api/astrometry.html#autex.calibration_catalog.ZeroPointSolution">ZeroPointSolution (class in autex.calibration_catalog)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, NIUS Research Group (TIFR / HCT).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

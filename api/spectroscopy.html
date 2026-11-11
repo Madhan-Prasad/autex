@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectroscopy Engine (autex.spectroscopy) &mdash; autex 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="I/O &amp; Frame Grouping (autex.io &amp; autex.catalog)" href="io_catalog.html" />
+    <link rel="prev" title="Astrometry &amp; Catalogs (autex.astrometry &amp; autex.calibration_catalog)" href="astrometry.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            autex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#install-from-source">Install from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#command-line-usage">Command-Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-slope-fitting-on-raw-sutr-ramps">Run Slope Fitting on Raw SUTR Ramps:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-2mass-calibrated-photometry">Run 2MASS-Calibrated Photometry:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-abba-nod-pair-spectroscopy">Run ABBA Nod-Pair Spectroscopy:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#python-api-quickstart">Python API Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline_architecture.html">Pipeline Architecture &amp; Physics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibration Engine (<cite>autex.calibration</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.assemble_quadrants"><code class="docutils literal notranslate"><span class="pre">assemble_quadrants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.fit_sutr_slope"><code class="docutils literal notranslate"><span class="pre">fit_sutr_slope()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.interpolate_row_clock_delays"><code class="docutils literal notranslate"><span class="pre">interpolate_row_clock_delays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.remove_pedestal"><code class="docutils literal notranslate"><span class="pre">remove_pedestal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.split_quadrants"><code class="docutils literal notranslate"><span class="pre">split_quadrants()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="photometry.html">Photometry Engine (<cite>autex.photometry</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.aperture_sum"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.aperture_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.flux_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.instrumental_mag"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.instrumental_mag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.mag_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.mag_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.net_flux"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.net_flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.sky_background_per_pixel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.source_id"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.x"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.y"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection"><code class="docutils literal notranslate"><span class="pre">SourceDetection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.flux"><code class="docutils literal notranslate"><span class="pre">SourceDetection.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.fwhm"><code class="docutils literal notranslate"><span class="pre">SourceDetection.fwhm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.peak"><code class="docutils literal notranslate"><span class="pre">SourceDetection.peak</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.source_id"><code class="docutils literal notranslate"><span class="pre">SourceDetection.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.x"><code class="docutils literal notranslate"><span class="pre">SourceDetection.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.y"><code class="docutils literal notranslate"><span class="pre">SourceDetection.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.detect_sources"><code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.estimate_background_2d"><code class="docutils literal notranslate"><span class="pre">estimate_background_2d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.extract_aperture_photometry"><code class="docutils literal notranslate"><span class="pre">extract_aperture_photometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.measure_empirical_fwhm"><code class="docutils literal notranslate"><span class="pre">measure_empirical_fwhm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="astrometry.html">Astrometry &amp; Catalogs (<cite>autex.astrometry</cite> &amp; <cite>autex.calibration_catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.brightness_variance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.center_of_mass_distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.mean_brightness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.radial_dispersion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.roll_angle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.star_count"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.star_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.build_wcs_header"><code class="docutils literal notranslate"><span class="pre">build_wcs_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.compute_frame_features"><code class="docutils literal notranslate"><span class="pre">compute_frame_features()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.match_asterism_triangles"><code class="docutils literal notranslate"><span class="pre">match_asterism_triangles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.num_matched_stars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point_err</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point"><code class="docutils literal notranslate"><span class="pre">calculate_photometric_zero_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.query_2mass_catalog"><code class="docutils literal notranslate"><span class="pre">query_2mass_catalog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D.flux"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D.flux_err"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D.header_meta"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.header_meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D.pixels"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.pixels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.spectroscopy.ExtractedSpectrum1D.wavelength"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.calibrate_wavelength"><code class="docutils literal notranslate"><span class="pre">calibrate_wavelength()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.correct_telluric_absorption"><code class="docutils literal notranslate"><span class="pre">correct_telluric_absorption()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.extract_optimal_spectrum"><code class="docutils literal notranslate"><span class="pre">extract_optimal_spectrum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.fit_spectral_trace"><code class="docutils literal notranslate"><span class="pre">fit_spectral_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.spectroscopy.subtract_nod_pair"><code class="docutils literal notranslate"><span class="pre">subtract_nod_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="io_catalog.html">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.io.get_standard_header"><code class="docutils literal notranslate"><span class="pre">get_standard_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.io.load_fits"><code class="docutils literal notranslate"><span class="pre">load_fits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.io.stack_ndr_sequence"><code class="docutils literal notranslate"><span class="pre">stack_ndr_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.io.validate_sutr_cube"><code class="docutils literal notranslate"><span class="pre">validate_sutr_cube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata"><code class="docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.date_obs"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.date_obs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.dec"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.exptime"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.exptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.filename"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.filepath"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filepath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.filter_band"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.frame_type"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.frame_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.nreads"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.nreads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.ra"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.ra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.FrameMetadata.target"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.catalog.ObservationCatalog"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.ObservationCatalog.frames"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.frames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.ObservationCatalog.get_by_type"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.get_by_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.ObservationCatalog.pair_science_and_calibrations"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.pair_science_and_calibrations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="io_catalog.html#autex.catalog.ObservationCatalog.scan_directory"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.scan_directory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="io_catalog.html#autex.catalog.infer_frame_type"><code class="docutils literal notranslate"><span class="pre">infer_frame_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_cli.html">Pipeline &amp; CLI Orchestrator (<cite>autex.pipeline</cite> &amp; <cite>autex.cli</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.build_master_dark_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.reduce_science_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_photometry_on_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_spectroscopy_on_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline_cli.html#autex.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">autex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/spectroscopy.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-autex.spectroscopy">
+<span id="spectroscopy-engine-autex-spectroscopy"></span><h1>Spectroscopy Engine (<cite>autex.spectroscopy</cite>)<a class="headerlink" href="#module-autex.spectroscopy" title="Link to this heading"></a></h1>
+<p>Automated Near-Infrared Spectroscopic Reduction Engine for autex.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">ExtractedSpectrum1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flux_err</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header_meta</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#ExtractedSpectrum1D"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Extracted 1D astronomical spectrum.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D.flux">
+<span class="sig-name descname"><span class="pre">flux</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D.flux" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D.flux_err">
+<span class="sig-name descname"><span class="pre">flux_err</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D.flux_err" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D.header_meta">
+<span class="sig-name descname"><span class="pre">header_meta</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><span class="pre">dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.15)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D.header_meta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D.pixels">
+<span class="sig-name descname"><span class="pre">pixels</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a></span><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D.pixels" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.spectroscopy.ExtractedSpectrum1D.wavelength">
+<span class="sig-name descname"><span class="pre">wavelength</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><span class="pre">ndarray</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#autex.spectroscopy.ExtractedSpectrum1D.wavelength" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.spectroscopy.calibrate_wavelength">
+<span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">calibrate_wavelength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pixel_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dispersion_poly_coeffs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#calibrate_wavelength"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.calibrate_wavelength" title="Link to this definition"></a></dt>
+<dd><p>Map dispersion pixel indices to physical wavelengths in micrometers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pixel_indices</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Array of column pixel indices (e.g. 0 to 1023).</p></li>
+<li><p><strong>dispersion_poly_coeffs</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a>] | <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Polynomial coefficients in descending degree: [c_n, …, c_1, c_0].</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Wavelengths in micrometers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.spectroscopy.correct_telluric_absorption">
+<span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">correct_telluric_absorption</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">science_spectrum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standard_spectrum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">standard_bb_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9500.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wavelengths</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#correct_telluric_absorption"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.correct_telluric_absorption" title="Link to this definition"></a></dt>
+<dd><p>Correct for telluric absorption features by dividing by a telluric standard star.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>science_spectrum</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Extracted 1D target spectrum.</p></li>
+<li><p><strong>standard_spectrum</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Extracted 1D telluric standard star spectrum (observed at similar airmass).</p></li>
+<li><p><strong>standard_bb_temperature</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Standard star effective blackbody temperature (A0V standard is ~9500 K), by default 9500.0.</p></li>
+<li><p><strong>wavelengths</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> | <span class="highlight sphinx_autodoc_typehints-value"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code></a></span></span>) – Wavelength array in micrometers for continuum shaping, by default None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Telluric-corrected, continuum-normalized science spectrum.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.spectroscopy.extract_optimal_spectrum">
+<span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">extract_optimal_spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_trace</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variance_map</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aperture_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">read_noise</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#extract_optimal_spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.extract_optimal_spectrum" title="Link to this definition"></a></dt>
+<dd><p>Extract 1D spectrum using spatial profile weighting (Horne’s Algorithm).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Calibrated 2D frame.</p></li>
+<li><p><strong>y_trace</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Trace spatial center coordinate Y for each column X (length Nx).</p></li>
+<li><p><strong>variance_map</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a> | <span class="highlight sphinx_autodoc_typehints-value"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code></a></span></span>) – Precomputed variance map. If None, derived from gain and read noise.</p></li>
+<li><p><strong>aperture_radius</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Spatial half-width for extraction profile, by default 6 pixels.</p></li>
+<li><p><strong>gain</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Detector gain (e-/ADU), by default 4.5.</p></li>
+<li><p><strong>read_noise</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Read noise (e-), by default 15.0.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>(flux_1d, flux_err_1d) across dispersion columns.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.spectroscopy.fit_spectral_trace">
+<span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">fit_spectral_trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">diff_image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_window_y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poly_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#fit_spectral_trace"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.fit_spectral_trace" title="Link to this definition"></a></dt>
+<dd><p>Locate and trace the stellar continuum centroid along the dispersion axis.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>diff_image</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – 2D difference frame (A - B). Dispersion axis is horizontal (X), spatial is vertical (Y).</p></li>
+<li><p><strong>search_window_y</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>] | <span class="highlight sphinx_autodoc_typehints-value"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><code class="xref py py-obj docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code></a></span></span>) – (ymin, ymax) pixel boundaries to isolate positive trace A, by default None.</p></li>
+<li><p><strong>poly_order</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Polynomial degree for trace curvature model, by default 2.</p></li>
+<li><p><strong>bin_width</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Column binning width along dispersion axis to increase SNR, by default 32.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Trace center Y-pixel coordinate for every dispersion column X. Shape: (Nx,).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.spectroscopy.subtract_nod_pair">
+<span class="sig-prename descclassname"><span class="pre">autex.spectroscopy.</span></span><span class="sig-name descname"><span class="pre">subtract_nod_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/spectroscopy.html#subtract_nod_pair"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.spectroscopy.subtract_nod_pair" title="Link to this definition"></a></dt>
+<dd><p>Subtract dithered/nodded spectral pair (A - B) to eliminate sky emission.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>image_a</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Calibrated 2D slope image at Slit Position A.</p></li>
+<li><p><strong>image_b</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span>) – Calibrated 2D slope image at Slit Position B.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Differential spectral frame with positive trace A and negative trace B.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="astrometry.html" class="btn btn-neutral float-left" title="Astrometry &amp; Catalogs (autex.astrometry &amp; autex.calibration_catalog)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="io_catalog.html" class="btn btn-neutral float-right" title="I/O &amp; Frame Grouping (autex.io &amp; autex.catalog)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, NIUS Research Group (TIFR / HCT).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

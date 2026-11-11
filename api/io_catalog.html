@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I/O &amp; Frame Grouping (autex.io &amp; autex.catalog) &mdash; autex 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pipeline &amp; CLI Orchestrator (autex.pipeline &amp; autex.cli)" href="pipeline_cli.html" />
+    <link rel="prev" title="Spectroscopy Engine (autex.spectroscopy)" href="spectroscopy.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            autex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#install-from-source">Install from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#command-line-usage">Command-Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-slope-fitting-on-raw-sutr-ramps">Run Slope Fitting on Raw SUTR Ramps:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-2mass-calibrated-photometry">Run 2MASS-Calibrated Photometry:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-abba-nod-pair-spectroscopy">Run ABBA Nod-Pair Spectroscopy:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#python-api-quickstart">Python API Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline_architecture.html">Pipeline Architecture &amp; Physics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="calibration.html">Calibration Engine (<cite>autex.calibration</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.assemble_quadrants"><code class="docutils literal notranslate"><span class="pre">assemble_quadrants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.fit_sutr_slope"><code class="docutils literal notranslate"><span class="pre">fit_sutr_slope()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.interpolate_row_clock_delays"><code class="docutils literal notranslate"><span class="pre">interpolate_row_clock_delays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.remove_pedestal"><code class="docutils literal notranslate"><span class="pre">remove_pedestal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calibration.html#autex.calibration.split_quadrants"><code class="docutils literal notranslate"><span class="pre">split_quadrants()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="photometry.html">Photometry Engine (<cite>autex.photometry</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.aperture_sum"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.aperture_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.flux_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.instrumental_mag"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.instrumental_mag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.mag_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.mag_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.net_flux"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.net_flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.sky_background_per_pixel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.source_id"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.x"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.PhotometryRecord.y"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection"><code class="docutils literal notranslate"><span class="pre">SourceDetection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.flux"><code class="docutils literal notranslate"><span class="pre">SourceDetection.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.fwhm"><code class="docutils literal notranslate"><span class="pre">SourceDetection.fwhm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.peak"><code class="docutils literal notranslate"><span class="pre">SourceDetection.peak</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.source_id"><code class="docutils literal notranslate"><span class="pre">SourceDetection.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.x"><code class="docutils literal notranslate"><span class="pre">SourceDetection.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="photometry.html#autex.photometry.SourceDetection.y"><code class="docutils literal notranslate"><span class="pre">SourceDetection.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.detect_sources"><code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.estimate_background_2d"><code class="docutils literal notranslate"><span class="pre">estimate_background_2d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.extract_aperture_photometry"><code class="docutils literal notranslate"><span class="pre">extract_aperture_photometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="photometry.html#autex.photometry.measure_empirical_fwhm"><code class="docutils literal notranslate"><span class="pre">measure_empirical_fwhm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="astrometry.html">Astrometry &amp; Catalogs (<cite>autex.astrometry</cite> &amp; <cite>autex.calibration_catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.brightness_variance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.center_of_mass_distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.mean_brightness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.radial_dispersion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.roll_angle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.astrometry.FrameObjectFeatures.star_count"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.star_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.build_wcs_header"><code class="docutils literal notranslate"><span class="pre">build_wcs_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.compute_frame_features"><code class="docutils literal notranslate"><span class="pre">compute_frame_features()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.astrometry.match_asterism_triangles"><code class="docutils literal notranslate"><span class="pre">match_asterism_triangles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.num_matched_stars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point_err</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point"><code class="docutils literal notranslate"><span class="pre">calculate_photometric_zero_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="astrometry.html#autex.calibration_catalog.query_2mass_catalog"><code class="docutils literal notranslate"><span class="pre">query_2mass_catalog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="spectroscopy.html">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux_err"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.header_meta"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.header_meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.pixels"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.pixels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.wavelength"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.calibrate_wavelength"><code class="docutils literal notranslate"><span class="pre">calibrate_wavelength()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.correct_telluric_absorption"><code class="docutils literal notranslate"><span class="pre">correct_telluric_absorption()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.extract_optimal_spectrum"><code class="docutils literal notranslate"><span class="pre">extract_optimal_spectrum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.fit_spectral_trace"><code class="docutils literal notranslate"><span class="pre">fit_spectral_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectroscopy.html#autex.spectroscopy.subtract_nod_pair"><code class="docutils literal notranslate"><span class="pre">subtract_nod_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#autex.io.get_standard_header"><code class="docutils literal notranslate"><span class="pre">get_standard_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.io.load_fits"><code class="docutils literal notranslate"><span class="pre">load_fits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.io.stack_ndr_sequence"><code class="docutils literal notranslate"><span class="pre">stack_ndr_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.io.validate_sutr_cube"><code class="docutils literal notranslate"><span class="pre">validate_sutr_cube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.catalog.FrameMetadata"><code class="docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.date_obs"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.date_obs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.dec"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.exptime"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.exptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.filename"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.filepath"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filepath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.filter_band"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.frame_type"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.frame_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.nreads"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.nreads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.ra"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.ra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.FrameMetadata.target"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.catalog.ObservationCatalog"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.ObservationCatalog.frames"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.frames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.ObservationCatalog.get_by_type"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.get_by_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.ObservationCatalog.pair_science_and_calibrations"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.pair_science_and_calibrations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autex.catalog.ObservationCatalog.scan_directory"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.scan_directory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#autex.catalog.infer_frame_type"><code class="docutils literal notranslate"><span class="pre">infer_frame_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipeline_cli.html">Pipeline &amp; CLI Orchestrator (<cite>autex.pipeline</cite> &amp; <cite>autex.cli</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.build_master_dark_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.reduce_science_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_photometry_on_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_spectroscopy_on_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pipeline_cli.html#autex.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">autex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/io_catalog.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="i-o-frame-grouping-autex-io-autex-catalog">
+<h1>I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)<a class="headerlink" href="#i-o-frame-grouping-autex-io-autex-catalog" title="Link to this heading"></a></h1>
+<p id="module-autex.io">Standardized FITS file ingestion, NDR stacking, and data validation.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.io.get_standard_header">
+<span class="sig-prename descclassname"><span class="pre">autex.io.</span></span><span class="sig-name descname"><span class="pre">get_standard_header</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/io.html#get_standard_header"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.io.get_standard_header" title="Link to this definition"></a></dt>
+<dd><p>Extract standard astronomical parameters regardless of telescope dialect.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.15)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.io.load_fits">
+<span class="sig-prename descclassname"><span class="pre">autex.io.</span></span><span class="sig-name descname"><span class="pre">load_fits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">memmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/io.html#load_fits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.io.load_fits" title="Link to this definition"></a></dt>
+<dd><p>Read a single FITS file and extract its primary array and header.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://docs.astropy.org/en/stable/io/fits/api/headers.html#astropy.io.fits.Header" title="(in Astropy v8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Header</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.io.stack_ndr_sequence">
+<span class="sig-prename descclassname"><span class="pre">autex.io.</span></span><span class="sig-name descname"><span class="pre">stack_ndr_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fits_files</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/io.html#stack_ndr_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.io.stack_ndr_sequence" title="Link to this definition"></a></dt>
+<dd><p>Sort individual 2D NDR frame slices and stack them into a 3D SUTR cube.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fits_files</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a> | <a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>]</span>) – List of paths belonging to a single sequence (e.g. NGC6604-92-debug-<a href="#id1"><span class="problematic" id="id2">*</span></a>.fits).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>3D cube of shape (N_reads, 1024, 1024) and base header.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a>, <a class="reference external" href="https://docs.astropy.org/en/stable/io/fits/api/headers.html#astropy.io.fits.Header" title="(in Astropy v8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Header</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.io.validate_sutr_cube">
+<span class="sig-prename descclassname"><span class="pre">autex.io.</span></span><span class="sig-name descname"><span class="pre">validate_sutr_cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_frames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1024,</span> <span class="pre">1024)</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/io.html#validate_sutr_cube"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.io.validate_sutr_cube" title="Link to this definition"></a></dt>
+<dd><p>Validate 2D or 3D astronomical arrays.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.5)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<p id="module-autex.catalog">Deterministic observation file cataloging and calibration grouping engine for autex.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">autex.catalog.</span></span><span class="sig-name descname"><span class="pre">FrameMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_band</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exptime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nreads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ra</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/catalog.html#FrameMetadata"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.FrameMetadata" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Standardized representation of a single observed astronomical frame.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.date_obs">
+<span class="sig-name descname"><span class="pre">date_obs</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.date_obs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.dec">
+<span class="sig-name descname"><span class="pre">dec</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#autex.catalog.FrameMetadata.dec" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.exptime">
+<span class="sig-name descname"><span class="pre">exptime</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.exptime" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.filename">
+<span class="sig-name descname"><span class="pre">filename</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.filename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.filepath">
+<span class="sig-name descname"><span class="pre">filepath</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.filepath" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.filter_band">
+<span class="sig-name descname"><span class="pre">filter_band</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.filter_band" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.frame_type">
+<span class="sig-name descname"><span class="pre">frame_type</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.frame_type" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.nreads">
+<span class="sig-name descname"><span class="pre">nreads</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#autex.catalog.FrameMetadata.nreads" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.ra">
+<span class="sig-name descname"><span class="pre">ra</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><span class="pre">float</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#autex.catalog.FrameMetadata.ra" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.FrameMetadata.target">
+<span class="sig-name descname"><span class="pre">target</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#autex.catalog.FrameMetadata.target" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="autex.catalog.ObservationCatalog">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">autex.catalog.</span></span><span class="sig-name descname"><span class="pre">ObservationCatalog</span></span><a class="reference internal" href="../_modules/autex/catalog.html#ObservationCatalog"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.ObservationCatalog" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Scans, categorizes, and organizes raw observation frames for pipeline ingestion.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="autex.catalog.ObservationCatalog.frames">
+<span class="sig-name descname"><span class="pre">frames</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#autex.catalog.FrameMetadata" title="autex.catalog.FrameMetadata"><span class="pre">FrameMetadata</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#autex.catalog.ObservationCatalog.frames" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autex.catalog.ObservationCatalog.get_by_type">
+<span class="sig-name descname"><span class="pre">get_by_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_type</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/catalog.html#ObservationCatalog.get_by_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.ObservationCatalog.get_by_type" title="Link to this definition"></a></dt>
+<dd><p>Filter catalog entries by their classified frame type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference internal" href="#autex.catalog.FrameMetadata" title="autex.catalog.FrameMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autex.catalog.ObservationCatalog.pair_science_and_calibrations">
+<span class="sig-name descname"><span class="pre">pair_science_and_calibrations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/catalog.html#ObservationCatalog.pair_science_and_calibrations"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.ObservationCatalog.pair_science_and_calibrations" title="Link to this definition"></a></dt>
+<dd><p>Automatically match science target observations with matching darks and flats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Grouped tree pairing science exposures with corresponding calibration sets.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#dict" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.15)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="autex.catalog.ObservationCatalog.scan_directory">
+<span class="sig-name descname"><span class="pre">scan_directory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pattern</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'*.fits*'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/catalog.html#ObservationCatalog.scan_directory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.ObservationCatalog.scan_directory" title="Link to this definition"></a></dt>
+<dd><p>Scan a folder, parse FITS metadata, and populate the catalog.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>raw_dir</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a></span>) – Directory containing raw observational FITS data.</p></li>
+<li><p><strong>pattern</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Glob pattern for identifying FITS files, by default ‘<em>.fits</em>’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of indexed and categorized frame metadata records.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference internal" href="#autex.catalog.FrameMetadata" title="autex.catalog.FrameMetadata"><code class="xref py py-class docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a>]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="autex.catalog.infer_frame_type">
+<span class="sig-prename descclassname"><span class="pre">autex.catalog.</span></span><span class="sig-name descname"><span class="pre">infer_frame_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">header</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/autex/catalog.html#infer_frame_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#autex.catalog.infer_frame_type" title="Link to this definition"></a></dt>
+<dd><p>Deterministically categorize a frame without manual regex terminal prompts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_name</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span>) – Target object string found in the FITS header.</p></li>
+<li><p><strong>header</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.astropy.org/en/stable/io/fits/api/headers.html#astropy.io.fits.Header" title="(in Astropy v8.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Header</span></code></a></span>) – Complete FITS header object.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>One of ‘DARK’, ‘FLAT’, ‘LAMP’, ‘SKY’, or ‘SCIENCE’.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="spectroscopy.html" class="btn btn-neutral float-left" title="Spectroscopy Engine (autex.spectroscopy)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pipeline_cli.html" class="btn btn-neutral float-right" title="Pipeline &amp; CLI Orchestrator (autex.pipeline &amp; autex.cli)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, NIUS Research Group (TIFR / HCT).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

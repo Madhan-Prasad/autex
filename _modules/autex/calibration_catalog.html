@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>autex.calibration_catalog &mdash; autex 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            autex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#install-from-source">Install from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#command-line-usage">Command-Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../quickstart.html#run-slope-fitting-on-raw-sutr-ramps">Run Slope Fitting on Raw SUTR Ramps:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quickstart.html#run-2mass-calibrated-photometry">Run 2MASS-Calibrated Photometry:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../quickstart.html#run-abba-nod-pair-spectroscopy">Run ABBA Nod-Pair Spectroscopy:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#python-api-quickstart">Python API Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../pipeline_architecture.html">Pipeline Architecture &amp; Physics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/calibration.html">Calibration Engine (<cite>autex.calibration</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/calibration.html#autex.calibration.assemble_quadrants"><code class="docutils literal notranslate"><span class="pre">assemble_quadrants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/calibration.html#autex.calibration.fit_sutr_slope"><code class="docutils literal notranslate"><span class="pre">fit_sutr_slope()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/calibration.html#autex.calibration.interpolate_row_clock_delays"><code class="docutils literal notranslate"><span class="pre">interpolate_row_clock_delays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/calibration.html#autex.calibration.remove_pedestal"><code class="docutils literal notranslate"><span class="pre">remove_pedestal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/calibration.html#autex.calibration.split_quadrants"><code class="docutils literal notranslate"><span class="pre">split_quadrants()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/photometry.html">Photometry Engine (<cite>autex.photometry</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.aperture_sum"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.aperture_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.flux_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.instrumental_mag"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.instrumental_mag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.mag_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.mag_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.net_flux"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.net_flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.sky_background_per_pixel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.source_id"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.x"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.PhotometryRecord.y"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection"><code class="docutils literal notranslate"><span class="pre">SourceDetection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.flux"><code class="docutils literal notranslate"><span class="pre">SourceDetection.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.fwhm"><code class="docutils literal notranslate"><span class="pre">SourceDetection.fwhm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.peak"><code class="docutils literal notranslate"><span class="pre">SourceDetection.peak</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.source_id"><code class="docutils literal notranslate"><span class="pre">SourceDetection.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.x"><code class="docutils literal notranslate"><span class="pre">SourceDetection.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/photometry.html#autex.photometry.SourceDetection.y"><code class="docutils literal notranslate"><span class="pre">SourceDetection.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.detect_sources"><code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.estimate_background_2d"><code class="docutils literal notranslate"><span class="pre">estimate_background_2d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.extract_aperture_photometry"><code class="docutils literal notranslate"><span class="pre">extract_aperture_photometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/photometry.html#autex.photometry.measure_empirical_fwhm"><code class="docutils literal notranslate"><span class="pre">measure_empirical_fwhm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/astrometry.html">Astrometry &amp; Catalogs (<cite>autex.astrometry</cite> &amp; <cite>autex.calibration_catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.brightness_variance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.center_of_mass_distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.mean_brightness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.radial_dispersion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.roll_angle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.FrameObjectFeatures.star_count"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.star_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.build_wcs_header"><code class="docutils literal notranslate"><span class="pre">build_wcs_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.compute_frame_features"><code class="docutils literal notranslate"><span class="pre">compute_frame_features()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.astrometry.match_asterism_triangles"><code class="docutils literal notranslate"><span class="pre">match_asterism_triangles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.num_matched_stars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point_err</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point"><code class="docutils literal notranslate"><span class="pre">calculate_photometric_zero_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/astrometry.html#autex.calibration_catalog.query_2mass_catalog"><code class="docutils literal notranslate"><span class="pre">query_2mass_catalog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/spectroscopy.html">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux_err"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.header_meta"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.header_meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.pixels"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.pixels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.wavelength"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.calibrate_wavelength"><code class="docutils literal notranslate"><span class="pre">calibrate_wavelength()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.correct_telluric_absorption"><code class="docutils literal notranslate"><span class="pre">correct_telluric_absorption()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.extract_optimal_spectrum"><code class="docutils literal notranslate"><span class="pre">extract_optimal_spectrum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.fit_spectral_trace"><code class="docutils literal notranslate"><span class="pre">fit_spectral_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/spectroscopy.html#autex.spectroscopy.subtract_nod_pair"><code class="docutils literal notranslate"><span class="pre">subtract_nod_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/io_catalog.html">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.io.get_standard_header"><code class="docutils literal notranslate"><span class="pre">get_standard_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.io.load_fits"><code class="docutils literal notranslate"><span class="pre">load_fits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.io.stack_ndr_sequence"><code class="docutils literal notranslate"><span class="pre">stack_ndr_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.io.validate_sutr_cube"><code class="docutils literal notranslate"><span class="pre">validate_sutr_cube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata"><code class="docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.date_obs"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.date_obs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.dec"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.exptime"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.exptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.filename"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.filepath"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filepath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.filter_band"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.frame_type"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.frame_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.nreads"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.nreads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.ra"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.ra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.FrameMetadata.target"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.ObservationCatalog"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.ObservationCatalog.frames"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.frames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.ObservationCatalog.get_by_type"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.get_by_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.ObservationCatalog.pair_science_and_calibrations"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.pair_science_and_calibrations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.ObservationCatalog.scan_directory"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.scan_directory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/io_catalog.html#autex.catalog.infer_frame_type"><code class="docutils literal notranslate"><span class="pre">infer_frame_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/pipeline_cli.html">Pipeline &amp; CLI Orchestrator (<cite>autex.pipeline</cite> &amp; <cite>autex.cli</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.build_master_dark_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.reduce_science_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_photometry_on_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_spectroscopy_on_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/pipeline_cli.html#autex.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">autex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">autex.calibration_catalog</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for autex.calibration_catalog</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""Automated 2MASS catalog cross-matching and photometric zero-point calibration for autex."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="n">SkyCoord</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">SigmaClip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.vizier</span><span class="w"> </span><span class="kn">import</span> <span class="n">Vizier</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">autex.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">autex.photometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">PhotometryRecord</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="s2">"catalog_calib"</span><span class="p">)</span>
+
+<span class="n">TWOMASS_FILTER_MAP</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"J"</span><span class="p">:</span> <span class="s2">"Jmag"</span><span class="p">,</span>
+    <span class="s2">"H"</span><span class="p">:</span> <span class="s2">"Hmag"</span><span class="p">,</span>
+    <span class="s2">"K"</span><span class="p">:</span> <span class="s2">"Kmag"</span><span class="p">,</span>
+    <span class="s2">"KS"</span><span class="p">:</span> <span class="s2">"Kmag"</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Standard VizieR mirrors across global astronomical centers</span>
+<span class="n">VIZIER_MIRRORS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">"vizier.cds.unistra.fr"</span><span class="p">,</span>
+    <span class="s2">"vizier.cfa.harvard.edu"</span><span class="p">,</span>
+    <span class="s2">"vizier.iucaa.in"</span><span class="p">,</span>
+    <span class="s2">"vizier.nao.ac.jp"</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<div class="viewcode-block" id="ZeroPointSolution">
+<a class="viewcode-back" href="../../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ZeroPointSolution</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Photometric zero-point calibration solution."""</span>
+    <span class="n">zero_point</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">zero_point_err</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="n">num_matched_stars</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">filter_band</span><span class="p">:</span> <span class="nb">str</span></div>
+
+
+
+<div class="viewcode-block" id="query_2mass_catalog">
+<a class="viewcode-back" href="../../api/astrometry.html#autex.calibration_catalog.query_2mass_catalog">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">query_2mass_catalog</span><span class="p">(</span>
+    <span class="n">ra_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">dec_deg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">radius_arcmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">,</span>
+    <span class="n">max_mag</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">16.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">"""Query 2MASS Point Source Catalog with automatic mirror failover.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ra_deg : float</span>
+<span class="sd">        Right Ascension in decimal degrees.</span>
+<span class="sd">    dec_deg : float</span>
+<span class="sd">        Declination in decimal degrees.</span>
+<span class="sd">    radius_arcmin : float, optional</span>
+<span class="sd">        Search radius in arcminutes, by default 6.0.</span>
+<span class="sd">    max_mag : float, optional</span>
+<span class="sd">        Faint magnitude cutoff, by default 16.0.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[dict[str, Any]]</span>
+<span class="sd">        Catalog star records.</span>
+<span class="sd">    """</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Querying 2MASS PSC at (RA=</span><span class="si">%.4f</span><span class="s2">, Dec=</span><span class="si">%.4f</span><span class="s2">) with radius </span><span class="si">%.1f</span><span class="s2"> arcmin"</span><span class="p">,</span> <span class="n">ra_deg</span><span class="p">,</span> <span class="n">dec_deg</span><span class="p">,</span> <span class="n">radius_arcmin</span><span class="p">)</span>
+    <span class="n">coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">ra_deg</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">dec_deg</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"RAJ2000"</span><span class="p">,</span> <span class="s2">"DEJ2000"</span><span class="p">,</span> <span class="s2">"Jmag"</span><span class="p">,</span> <span class="s2">"e_Jmag"</span><span class="p">,</span> <span class="s2">"Hmag"</span><span class="p">,</span> <span class="s2">"e_Hmag"</span><span class="p">,</span> <span class="s2">"Kmag"</span><span class="p">,</span> <span class="s2">"e_Kmag"</span><span class="p">]</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">mirror</span> <span class="ow">in</span> <span class="n">VIZIER_MIRRORS</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Attempting query via VizieR mirror: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">mirror</span><span class="p">)</span>
+            <span class="n">viz</span> <span class="o">=</span> <span class="n">Vizier</span><span class="p">(</span>
+                <span class="n">vizier_server</span><span class="o">=</span><span class="n">mirror</span><span class="p">,</span>
+                <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">,</span>
+                <span class="n">column_filters</span><span class="o">=</span><span class="p">{</span><span class="s2">"Kmag"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"&lt;</span><span class="si">{</span><span class="n">max_mag</span><span class="si">}</span><span class="s2">"</span><span class="p">},</span>
+                <span class="n">row_limit</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+                <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+            <span class="p">)</span>
+            <span class="n">tables</span> <span class="o">=</span> <span class="n">viz</span><span class="o">.</span><span class="n">query_region</span><span class="p">(</span><span class="n">coord</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="n">radius_arcmin</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">,</span> <span class="n">catalog</span><span class="o">=</span><span class="s2">"II/246/out"</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">tables</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Successfully retrieved 2MASS catalog via </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="n">mirror</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">"Mirror </span><span class="si">%s</span><span class="s2"> failed (</span><span class="si">%s</span><span class="s2">), trying next..."</span><span class="p">,</span> <span class="n">mirror</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tables</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">tables</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"All VizieR mirrors failed or returned empty results. Catalog calibration will be skipped."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="n">table</span> <span class="o">=</span> <span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">table</span><span class="p">:</span>
+        <span class="n">records</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+            <span class="s2">"ra"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"RAJ2000"</span><span class="p">]),</span>
+            <span class="s2">"dec"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"DEJ2000"</span><span class="p">]),</span>
+            <span class="s2">"Jmag"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Jmag"</span><span class="p">])</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Jmag"</span><span class="p">])</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">"Hmag"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Hmag"</span><span class="p">])</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Hmag"</span><span class="p">])</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="s2">"Kmag"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Kmag"</span><span class="p">])</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">"Kmag"</span><span class="p">])</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">})</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Retrieved </span><span class="si">%d</span><span class="s2"> 2MASS reference stars."</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">records</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_photometric_zero_point">
+<a class="viewcode-back" href="../../api/astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_photometric_zero_point</span><span class="p">(</span>
+    <span class="n">phot_records</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PhotometryRecord</span><span class="p">],</span>
+    <span class="n">catalog_stars</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+    <span class="n">wcs</span><span class="p">:</span> <span class="n">WCS</span><span class="p">,</span>
+    <span class="n">filter_band</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Ks"</span><span class="p">,</span>
+    <span class="n">match_radius_arcsec</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>
+    <span class="n">sigma_clip_val</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ZeroPointSolution</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Cross-match detected sources with 2MASS stars and solve for the zero-point."""</span>
+    <span class="n">band_key</span> <span class="o">=</span> <span class="n">TWOMASS_FILTER_MAP</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">filter_band</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="s2">"Kmag"</span><span class="p">)</span>
+    <span class="n">valid_cat</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">catalog_stars</span> <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">band_key</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">phot_records</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">valid_cat</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Insufficient sources or catalog stars for zero-point fitting."</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ZeroPointSolution</span><span class="p">(</span><span class="n">zero_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">zero_point_err</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">num_matched_stars</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">filter_band</span><span class="o">=</span><span class="n">filter_band</span><span class="p">)</span>
+
+    <span class="n">det_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">x</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">phot_records</span><span class="p">])</span>
+    <span class="n">det_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">r</span><span class="o">.</span><span class="n">y</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">phot_records</span><span class="p">])</span>
+    <span class="n">det_ra</span><span class="p">,</span> <span class="n">det_dec</span> <span class="o">=</span> <span class="n">wcs</span><span class="o">.</span><span class="n">all_pix2world</span><span class="p">(</span><span class="n">det_x</span><span class="p">,</span> <span class="n">det_y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">det_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">det_ra</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">det_dec</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
+
+    <span class="n">cat_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span>
+        <span class="n">ra</span><span class="o">=</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s2">"ra"</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">valid_cat</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span>
+        <span class="n">dec</span><span class="o">=</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="s2">"dec"</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">valid_cat</span><span class="p">]</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">idx_cat</span><span class="p">,</span> <span class="n">sep2d</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">det_coords</span><span class="o">.</span><span class="n">match_to_catalog_sky</span><span class="p">(</span><span class="n">cat_coords</span><span class="p">)</span>
+    <span class="n">matches</span> <span class="o">=</span> <span class="n">sep2d</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">match_radius_arcsec</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+
+    <span class="n">zp_candidates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">det_idx</span><span class="p">,</span> <span class="n">is_match</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">matches</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_match</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">rec</span> <span class="o">=</span> <span class="n">phot_records</span><span class="p">[</span><span class="n">det_idx</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">rec</span><span class="o">.</span><span class="n">instrumental_mag</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">cat_mag</span> <span class="o">=</span> <span class="n">valid_cat</span><span class="p">[</span><span class="n">idx_cat</span><span class="p">[</span><span class="n">det_idx</span><span class="p">]][</span><span class="n">band_key</span><span class="p">]</span>
+        <span class="n">zp_val</span> <span class="o">=</span> <span class="n">cat_mag</span> <span class="o">-</span> <span class="n">rec</span><span class="o">.</span><span class="n">instrumental_mag</span>
+        <span class="n">zp_candidates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">zp_val</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">zp_candidates</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"No detected stars cross-matched with 2MASS within </span><span class="si">%.1f</span><span class="s2"> arcsec."</span><span class="p">,</span> <span class="n">match_radius_arcsec</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ZeroPointSolution</span><span class="p">(</span><span class="n">zero_point</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">zero_point_err</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">num_matched_stars</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">filter_band</span><span class="o">=</span><span class="n">filter_band</span><span class="p">)</span>
+
+    <span class="n">zp_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zp_candidates</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="n">sig_clip</span> <span class="o">=</span> <span class="n">SigmaClip</span><span class="p">(</span><span class="n">sigma</span><span class="o">=</span><span class="n">sigma_clip_val</span><span class="p">)</span>
+    <span class="n">clipped</span> <span class="o">=</span> <span class="n">sig_clip</span><span class="p">(</span><span class="n">zp_arr</span><span class="p">)</span>
+    <span class="n">valid_zps</span> <span class="o">=</span> <span class="n">clipped</span><span class="o">.</span><span class="n">compressed</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">valid_zps</span> <span class="o">=</span> <span class="n">zp_arr</span>
+
+    <span class="n">zp_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">))</span>
+    <span class="n">zp_err</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">)))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="mf">0.05</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Photometric calibration solution [</span><span class="si">%s</span><span class="s2">]: ZP = </span><span class="si">%.3f</span><span class="s2"> +/- </span><span class="si">%.3f</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> matched stars)"</span><span class="p">,</span>
+                <span class="n">filter_band</span><span class="p">,</span> <span class="n">zp_mean</span><span class="p">,</span> <span class="n">zp_err</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">ZeroPointSolution</span><span class="p">(</span>
+        <span class="n">zero_point</span><span class="o">=</span><span class="n">zp_mean</span><span class="p">,</span>
+        <span class="n">zero_point_err</span><span class="o">=</span><span class="n">zp_err</span><span class="p">,</span>
+        <span class="n">num_matched_stars</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">valid_zps</span><span class="p">),</span>
+        <span class="n">filter_band</span><span class="o">=</span><span class="n">filter_band</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, NIUS Research Group (TIFR / HCT).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

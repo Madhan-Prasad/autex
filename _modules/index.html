@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview: module code &mdash; autex 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            autex
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#install-from-source">Install from Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#command-line-usage">Command-Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-slope-fitting-on-raw-sutr-ramps">Run Slope Fitting on Raw SUTR Ramps:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-2mass-calibrated-photometry">Run 2MASS-Calibrated Photometry:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../quickstart.html#run-abba-nod-pair-spectroscopy">Run ABBA Nod-Pair Spectroscopy:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#python-api-quickstart">Python API Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pipeline_architecture.html">Pipeline Architecture &amp; Physics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/calibration.html">Calibration Engine (<cite>autex.calibration</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/calibration.html#autex.calibration.assemble_quadrants"><code class="docutils literal notranslate"><span class="pre">assemble_quadrants()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/calibration.html#autex.calibration.fit_sutr_slope"><code class="docutils literal notranslate"><span class="pre">fit_sutr_slope()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/calibration.html#autex.calibration.interpolate_row_clock_delays"><code class="docutils literal notranslate"><span class="pre">interpolate_row_clock_delays()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/calibration.html#autex.calibration.remove_pedestal"><code class="docutils literal notranslate"><span class="pre">remove_pedestal()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/calibration.html#autex.calibration.split_quadrants"><code class="docutils literal notranslate"><span class="pre">split_quadrants()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/photometry.html">Photometry Engine (<cite>autex.photometry</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.aperture_sum"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.aperture_sum</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.flux_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.instrumental_mag"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.instrumental_mag</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.mag_err"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.mag_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.net_flux"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.net_flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.sky_background_per_pixel"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.sky_background_per_pixel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.source_id"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.x"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.PhotometryRecord.y"><code class="docutils literal notranslate"><span class="pre">PhotometryRecord.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection"><code class="docutils literal notranslate"><span class="pre">SourceDetection</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.flux"><code class="docutils literal notranslate"><span class="pre">SourceDetection.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.fwhm"><code class="docutils literal notranslate"><span class="pre">SourceDetection.fwhm</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.peak"><code class="docutils literal notranslate"><span class="pre">SourceDetection.peak</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.source_id"><code class="docutils literal notranslate"><span class="pre">SourceDetection.source_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.x"><code class="docutils literal notranslate"><span class="pre">SourceDetection.x</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/photometry.html#autex.photometry.SourceDetection.y"><code class="docutils literal notranslate"><span class="pre">SourceDetection.y</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.detect_sources"><code class="docutils literal notranslate"><span class="pre">detect_sources()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.estimate_background_2d"><code class="docutils literal notranslate"><span class="pre">estimate_background_2d()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.extract_aperture_photometry"><code class="docutils literal notranslate"><span class="pre">extract_aperture_photometry()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/photometry.html#autex.photometry.measure_empirical_fwhm"><code class="docutils literal notranslate"><span class="pre">measure_empirical_fwhm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/astrometry.html">Astrometry &amp; Catalogs (<cite>autex.astrometry</cite> &amp; <cite>autex.calibration_catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.brightness_variance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.brightness_variance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.center_of_mass_distance"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.center_of_mass_distance</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.mean_brightness"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.mean_brightness</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.radial_dispersion"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.radial_dispersion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.roll_angle"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.roll_angle</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.FrameObjectFeatures.star_count"><code class="docutils literal notranslate"><span class="pre">FrameObjectFeatures.star_count</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.build_wcs_header"><code class="docutils literal notranslate"><span class="pre">build_wcs_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.compute_frame_features"><code class="docutils literal notranslate"><span class="pre">compute_frame_features()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.astrometry.match_asterism_triangles"><code class="docutils literal notranslate"><span class="pre">match_asterism_triangles()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.filter_band"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.num_matched_stars"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.num_matched_stars</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.ZeroPointSolution.zero_point_err"><code class="docutils literal notranslate"><span class="pre">ZeroPointSolution.zero_point_err</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.calculate_photometric_zero_point"><code class="docutils literal notranslate"><span class="pre">calculate_photometric_zero_point()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/astrometry.html#autex.calibration_catalog.query_2mass_catalog"><code class="docutils literal notranslate"><span class="pre">query_2mass_catalog()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/spectroscopy.html">Spectroscopy Engine (<cite>autex.spectroscopy</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.flux_err"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.flux_err</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.header_meta"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.header_meta</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.pixels"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.pixels</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.ExtractedSpectrum1D.wavelength"><code class="docutils literal notranslate"><span class="pre">ExtractedSpectrum1D.wavelength</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.calibrate_wavelength"><code class="docutils literal notranslate"><span class="pre">calibrate_wavelength()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.correct_telluric_absorption"><code class="docutils literal notranslate"><span class="pre">correct_telluric_absorption()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.extract_optimal_spectrum"><code class="docutils literal notranslate"><span class="pre">extract_optimal_spectrum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.fit_spectral_trace"><code class="docutils literal notranslate"><span class="pre">fit_spectral_trace()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/spectroscopy.html#autex.spectroscopy.subtract_nod_pair"><code class="docutils literal notranslate"><span class="pre">subtract_nod_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/io_catalog.html">I/O &amp; Frame Grouping (<cite>autex.io</cite> &amp; <cite>autex.catalog</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.io.get_standard_header"><code class="docutils literal notranslate"><span class="pre">get_standard_header()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.io.load_fits"><code class="docutils literal notranslate"><span class="pre">load_fits()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.io.stack_ndr_sequence"><code class="docutils literal notranslate"><span class="pre">stack_ndr_sequence()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.io.validate_sutr_cube"><code class="docutils literal notranslate"><span class="pre">validate_sutr_cube()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata"><code class="docutils literal notranslate"><span class="pre">FrameMetadata</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.date_obs"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.date_obs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.dec"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.dec</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.exptime"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.exptime</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.filename"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filename</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.filepath"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filepath</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.filter_band"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.filter_band</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.frame_type"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.frame_type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.nreads"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.nreads</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.ra"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.ra</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.FrameMetadata.target"><code class="docutils literal notranslate"><span class="pre">FrameMetadata.target</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.ObservationCatalog"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.ObservationCatalog.frames"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.frames</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.ObservationCatalog.get_by_type"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.get_by_type()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.ObservationCatalog.pair_science_and_calibrations"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.pair_science_and_calibrations()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.ObservationCatalog.scan_directory"><code class="docutils literal notranslate"><span class="pre">ObservationCatalog.scan_directory()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/io_catalog.html#autex.catalog.infer_frame_type"><code class="docutils literal notranslate"><span class="pre">infer_frame_type()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api/pipeline_cli.html">Pipeline &amp; CLI Orchestrator (<cite>autex.pipeline</cite> &amp; <cite>autex.cli</cite>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.build_master_dark_model"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.build_master_dark_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.reduce_science_group"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.reduce_science_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_photometry_on_image"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_photometry_on_image()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/pipeline_cli.html#autex.pipeline.ReductionPipeline.run_spectroscopy_on_pair"><code class="docutils literal notranslate"><span class="pre">ReductionPipeline.run_spectroscopy_on_pair()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/pipeline_cli.html#autex.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">autex</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview: module code</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="autex/astrometry.html">autex.astrometry</a></li>
+<li><a href="autex/calibration.html">autex.calibration</a></li>
+<li><a href="autex/calibration_catalog.html">autex.calibration_catalog</a></li>
+<li><a href="autex/catalog.html">autex.catalog</a></li>
+<li><a href="autex/cli.html">autex.cli</a></li>
+<li><a href="autex/io.html">autex.io</a></li>
+<li><a href="autex/photometry.html">autex.photometry</a></li>
+<li><a href="autex/pipeline.html">autex.pipeline</a></li>
+<li><a href="autex/spectroscopy.html">autex.spectroscopy</a></li>
+</ul>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, NIUS Research Group (TIFR / HCT).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
